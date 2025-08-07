@@ -47,13 +47,17 @@ main {
 }
 
 .current-temperature {
-  font-size: 88px;
-  margin-left: 10px;
+  position: relative;
+  top: -8px;
+  font-size: 40px;
+  margin-right: 10px;
   font-weight: bold;
 }
-.current-temperature-icon {
-  width: 88px;
-  height: 88px;
+#current-temperature-icon {
+  position: relative;
+  top: -8px;
+  font-size: 60px;
+  margin-right: 10px;
 }
 .current-weather {
   display: flex;
