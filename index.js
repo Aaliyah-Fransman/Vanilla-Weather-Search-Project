@@ -39,8 +39,18 @@ function updateBackground(weatherDescription) {
       "url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/171/895/original/thunderstorm.gif?1754604447')",
   };
 
-  let matchedKey = Object.keys(backgrounds).find((key) =>
-    weatherDescription.includes(key)
+  const synonyms = {
+    clear: ["clear", "sunny"],
+    cloudy: ["cloudy", "overcast", "partly cloudy"],
+    rain: ["rain", "drizzle", "showers", "light rain"],
+    snow: ["snow", "flurries", "blizzard"],
+    thunderstorm: ["thunderstorm", "storm", "lightning", "thunder"],
+  };
+
+  let matchedKey = Object.keys(synonyms).find((key) =>
+    synonyms[key].some((term) =>
+      weatherDescription.toLowerCase().includes(term)
+    )
   );
 
   const background = backgrounds[matchedKey] || backgrounds.clear;
@@ -121,3 +131,13 @@ function search(event) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
+
+function loadDefaultCity() {
+  const defaultCity = "Paris";
+  const apiKey = "b2a5adcct04b33178913oc335f405433";
+  const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${defaultCity}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+loadDefaultCity();
