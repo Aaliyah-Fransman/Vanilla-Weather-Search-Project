@@ -47,17 +47,21 @@ main {
 }
 
 .current-temperature {
-  position: relative;
-  top: -8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   font-size: 40px;
-  margin-right: 10px;
   font-weight: bold;
 }
-#current-temperature-icon {
-  position: relative;
-  top: -8px;
-  font-size: 60px;
-  margin-right: 10px;
+
+.current-temperature-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
 }
 .current-weather {
   display: flex;
@@ -78,13 +82,6 @@ main {
 
 .current-details strong {
   color: #f65282;
-}
-
-.current-temperature-icon {
-  position: relative;
-  top: -8px;
-  font-size: 40px;
-  margin-right: 10px;
 }
 
 .current-temperature-value {
