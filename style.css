@@ -8,13 +8,21 @@ a {
 }
 
 .weather-app {
-  background: url
-    "('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/171/890/original/clear.gif?1754604363')";
+  position: relative;
+  overflow: hidden;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: 1s ease-in-out;
+
   max-width: 600px;
+  height: 100%;
   margin: 60px auto;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 100px 0px 60px rgba(65, 50, 100, 0.08);
+  box-shadow: 0 0 60px rgba(65, 50, 100, 0.08);
+  z-index: 1;
 }
 
 header {

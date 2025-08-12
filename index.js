@@ -22,11 +22,11 @@ function formatDate(date) {
   ];
 
   let formattedDay = days[day];
-  return `${formattedDay} ${hours}:${minutes}`;
+  return `<span class="weekday-box">${formattedDay} ${hours}:${minutes}</span>`;
 }
 
 function updateBackground(weatherDescription) {
-  const body = document.getElementById("weather-body");
+  const weatherApp = document.querySelector(".weather-app");
 
   const backgrounds = {
     clear:
@@ -54,7 +54,7 @@ function updateBackground(weatherDescription) {
   );
 
   const background = backgrounds[matchedKey] || backgrounds.clear;
-  body.style.background = `${background} no-repeat center center / cover`;
+  weatherApp.style.background = `${background} no-repeat center / cover`;
 }
 
 function displayTemperature(response) {
